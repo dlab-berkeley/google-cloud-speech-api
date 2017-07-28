@@ -16,7 +16,7 @@ cat > simple-test.json <<EOF
 {
   "config": {
       "encoding":"FLAC",
-      "sampleRateHertz": 160000,
+      "sampleRateHertz": 16000,
       "languageCode": "en-US"
   },
   "audio": {
