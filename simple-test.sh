@@ -27,7 +27,7 @@ EOF
 
 #
 curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:longrunningrecognize     -d @simple-test.json > simple-test.status
-JOBID=$(cat simple-test.status | jq .name)
+JOBID=$(cat simple-test.status | jq -r .name)
 echo Waiting for job $JOBID to finish
 sleep 3
 
