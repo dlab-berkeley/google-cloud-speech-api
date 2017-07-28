@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME=brooklyn
+NAME=${1:-brooklyn}
 
 # To do
 # 1. Setup (one time only) 
