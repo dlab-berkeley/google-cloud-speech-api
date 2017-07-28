@@ -1,5 +1,7 @@
 #!/bin/bash
 
+NAME=Lewis
+
 # To do
 # 1. Setup (one time only) 
 
@@ -11,14 +13,19 @@
 
 # set variable for file name
 
+## by hand run this command with whatever your key is called
+## (replace foo-key.json with the name of your key):
+##
+##    cp $HOME/foo-key.json $HOME/simple-test-key.json
+
 # points to the service account key file
-export GOOGLE_APPLICATION_CREDENTIALS=gc-speech-api-79f84132db5f.json
+export GOOGLE_APPLICATION_CREDENTIALS=$HOME/simple-test-key.json
 
 # gets a new access token based on the service account key file
 TOKEN=$(gcloud auth application-default print-access-token)
 
 # This edits the metadata the API expects.  make sure it’s the same as the file you are converting.
-cat > Lewis.json <<EOF
+cat > ${NAME}.json <<EOF
 {
   "config": {
       "encoding":"FLAC",
@@ -26,15 +33,23 @@ cat > Lewis.json <<EOF
       "languageCode": "en-US"
   },
   "audio": {
-      "uri":"gs://audio-test-123/Lewis.flac"
+      "uri":"gs://audio-test-123/${NAME}.flac"
   }
 }
 EOF
 
 #
-curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:longrunningrecognize     -d @Lewis.json
+curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:longrunningrecognize     -d @${NAME}.json > ${NAME}.status
+JOBID=$(cat ${NAME}.status | jq -r .name)
+echo Waiting for job $JOBID to finish
+sleep 3
 
-#
-echo <<EOF
-curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/6152850171522197711 > Lewis-output.json
+curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/$JOBID > ${NAME}-output.json
+cat ${NAME}-output.json
+
+cat <<EOF
+Run these commands again if the job is not yet done:
+
+curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/$JOBID > ${NAME}-output.json
+cat ${NAME}-output.json
 EOF
