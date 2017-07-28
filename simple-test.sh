@@ -6,7 +6,7 @@
 ##    cp $HOME/foo-key.json $HOME/simple-test-key.json
 
 # points to the service account key file
-export GOOGLE_APPLICATION_CREDENTIALS=simple-test-key.json
+export GOOGLE_APPLICATION_CREDENTIALS=$HOME/simple-test-key.json
 
 # gets a new access token based on the service account key file
 TOKEN=$(gcloud auth application-default print-access-token)
