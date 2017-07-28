@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash
 
 ## by hand run this command with whatever your key is called
 ## (replace foo-key.json with the name of your key):
@@ -32,9 +32,11 @@ echo Waiting for job $JOBID to finish
 sleep 3
 
 curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/$JOBID > simple-test-output.json
+cat simple-test-output.json
 
-echo <<EOF
-Run this command again if the job is not yet done:
+cat <<EOF
+Run these commands again if the job is not yet done:
 
 curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/$JOBID > simple-test-output.json
+cat simple-test-output.json
 EOF
