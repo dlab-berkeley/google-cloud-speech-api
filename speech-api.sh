@@ -32,7 +32,7 @@ cat > ${NAME}.json <<EOF
 {
   "config": {
       "encoding":"FLAC",
-      "sampleRateHertz": 44100,
+      # "sampleRateHertz": 44100,
       "languageCode": "en-US"
   },
   "audio": {
