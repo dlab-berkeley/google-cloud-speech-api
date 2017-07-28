@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME=Lewis
+NAME=brooklyn
 
 # To do
 # 1. Setup (one time only) 
@@ -12,6 +12,9 @@ NAME=Lewis
 # download the service account key file to your laptop, then upload it to google cloud shell
 
 # set variable for file name
+
+# make sure for the default test to download this file and upload it to your own bucket:
+#  gsutil cp gs://cloud-samples-tests/speech/brooklyn.flac .
 
 ## by hand run this command with whatever your key is called
 ## (replace foo-key.json with the name of your key):
