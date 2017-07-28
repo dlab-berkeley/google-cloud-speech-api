@@ -26,9 +26,15 @@ cat > simple-test.json <<EOF
 EOF
 
 #
-curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:longrunningrecognize     -d @simple-test.json
+curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:longrunningrecognize     -d @simple-test.json > simple-test.status
+JOBID=$(cat simple-test.status | jq .name)
+echo Waiting for job $JOBID to finish
+sleep 3
 
-#
+curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/$JOBID > simple-test-output.json
+
 echo <<EOF
-curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/6152850171522197711 > simple-test-output.json
+Run this command again if the job is not yet done:
+
+curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/$JOBID > simple-test-output.json
 EOF
