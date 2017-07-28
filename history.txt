@@ -1,0 +1,94 @@
+To do
+1. Setup (one time only)
+
+#set variable for file name
+
+#
+export GOOGLE_APPLICATION_CREDENTIALS=gc-speech-api-79f84132db5f.json
+
+# 
+TOKEN=$(gcloud auth application-default print-access-token)
+
+# This edits the metadata the api expects.  make sure it’s the same as the file you are converting.
+cat > Lewis.json <<EOF
+{
+  "config": {
+      "encoding":"FLAC",
+      "sampleRateHertz": 44100,
+      "languageCode": "en-US"
+  },
+  "audio": {
+      "uri":"gs://audio-test-123/Lewis.flac"
+  }
+}
+EOF
+
+#
+curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:longrunningrecognize     -d @Lewis.json
+
+#
+echo <<EOF
+curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/6152850171522197711 > Lewis-output.json
+EOF
+
+
+
+
+    1  cat > sync-request.json
+    2  gcloud iam service-accounts create my-sa-123 --display-name "my service account"
+    3  gcloud auth activate-service-account --key-file=service-account-key-file
+    4  ls-la
+    5  ls -la
+    6  gcloud auth activate-service-account --key-file=gc-speech-api-79f84132db5f.json
+    7  gcloud auth application-default print-access-token
+    8  access_token
+    9    curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer access_token"     https://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   10  gcloud auth application-default print-access-token
+   11    curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer ya29.GpsBlQS7XA3DrdlSDS9mlbJm8s-SFr5cd8Cv34YP3cD_OtshEkW7ajDRUHBigTed0P5pnCrLHF38rXbnWwt0_gG2Z-8EcxurMKxp0wQamead-0PcwE9cUsQ88oD2YBzcO://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   12  OyIP2SDlXKK4I0HO2M0I1ec3FPjpShwJTp6Hgo9zJnkgNfEp0p4BxmBLo_HuoexO_Z31Tpvoj4vxS9qzh0
+   13  TOKEN=$(gcloud auth application-default print-access-token)
+   14  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   15  export GOOGLE_APPLICATION_CREDENTIALS=key.json
+   16  ls -la
+   17  export GOOGLE_APPLICATION_CREDENTIALS=gc-speech-api-79f84132db5f.json
+   18  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   19  TOKEN=$(gcloud auth application-default print-access-token)
+   20  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   21  cat sync-request.json 
+   22  cp sync-request.json Lewis.json
+   23  nano Lewis.json
+   24  cat Lewis.json
+   25  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @Lewis.json
+   26  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   27  cat sync-request.json 
+   28  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @Lewis.json
+   29  cat Lewis.json
+   30  nano Lewis.json
+   31  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @Lewis.json
+   32  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:longrunningrecognize     -d @Lewis.json
+   33  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/opperations/6152850171522197711
+   34  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/6152850171522197711
+   35  curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/615285017152219771
+   36  curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/6152850171522197711
+   37  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   38  TOKEN=$(gcloud auth application-default print-access-token)
+   39  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   40  export GOOGLE_APPLICATION_CREDENTIALS=gc-speech-api-79f84132db5f.json
+   41  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   42  TOKEN=$(gcloud auth application-default print-access-token)
+   43  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:recognize     -d @sync-request.json
+   44  curl -s -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/speech:longrunningrecognize     -d @sync-request.json
+   45  curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/6152850171522197711
+   46  curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/1077066012408181686
+   47  curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/6152850171522197711
+   48  curl -s -k -H "Content-Type: application/json"     -H "Authorization: Bearer $TOKEN"     https://speech.googleapis.com/v1/operations/6152850171522197711 > Lewis-output.json
+   49  less Lewis-output.json 
+   50  ls -la
+   51  pwd
+   52  jq
+   53  cat Lewis-output.json | jq
+   54  cat Lewis-output.json | jq .transcript
+   55  cat Lewis-output.json | jq .alternatives
+   56  cat Lewis-output.json | jq '.response.results[].alternatives[].transcript'
+   57  cat Lewis-output.json | jq -r '.response.results[].alternatives[].transcript'
+   58  history > history.txt
