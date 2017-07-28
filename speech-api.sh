@@ -28,11 +28,14 @@ export GOOGLE_APPLICATION_CREDENTIALS=$HOME/simple-test-key.json
 TOKEN=$(gcloud auth application-default print-access-token)
 
 # This edits the metadata the API expects.  make sure it’s the same as the file you are converting.
+
+# Add this back after encoding if you want to do it explicitly 
+# "sampleRateHertz": 44100,
+
 cat > ${NAME}.json <<EOF
 {
   "config": {
       "encoding":"FLAC",
-      # "sampleRateHertz": 44100,
       "languageCode": "en-US"
   },
   "audio": {
