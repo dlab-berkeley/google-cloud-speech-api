@@ -1,0 +1,169 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "          <script src=\"/static/components/requirejs/require.js\"></script>\n",
+       "          <script>\n",
+       "            requirejs.config({\n",
+       "              paths: {\n",
+       "                base: '/static/base',\n",
+       "              },\n",
+       "            });\n",
+       "          </script>\n",
+       "          "
+      ],
+      "text/plain": [
+       "<IPython.core.display.HTML object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cloning into 'google-cloud-speech-api'...\n",
+      "remote: Counting objects: 47, done.\u001b[K\n",
+      "remote: Total 47 (delta 0), reused 0 (delta 0), pack-reused 47\u001b[K\n",
+      "Unpacking objects: 100% (47/47), done.\n",
+      "Checking connectivity... done.\n"
+     ]
+    }
+   ],
+   "source": [
+    "! git clone https://github.com/BeniamG/google-cloud-speech-api.git"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "          <script src=\"/static/components/requirejs/require.js\"></script>\n",
+       "          <script>\n",
+       "            requirejs.config({\n",
+       "              paths: {\n",
+       "                base: '/static/base',\n",
+       "              },\n",
+       "            });\n",
+       "          </script>\n",
+       "          "
+      ],
+      "text/plain": [
+       "<IPython.core.display.HTML object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "! ln -s ../gc-speech-api-79f84132db5f.json creds.json"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "          <script src=\"/static/components/requirejs/require.js\"></script>\n",
+       "          <script>\n",
+       "            requirejs.config({\n",
+       "              paths: {\n",
+       "                base: '/static/base',\n",
+       "              },\n",
+       "            });\n",
+       "          </script>\n",
+       "          "
+      ],
+      "text/plain": [
+       "<IPython.core.display.HTML object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "total 32\r\n",
+      "drwxr-xr-x 7 root root 4096 Nov  1 20:44 .\r\n",
+      "drwxr-xr-x 9 root root 4096 Nov  1 20:42 ..\r\n",
+      "drwxr-xr-x 4 root root 4096 Nov  1 20:38 .config\r\n",
+      "lrwxrwxrwx 1 root root   34 Nov  1 20:44 creds.json -> ../gc-speech-api-79f84132db5f.json\r\n",
+      "drwxr-xr-x 6 root root 4096 Nov  1 20:28 docs\r\n",
+      "drwxr-xr-x 4 root root 4096 Nov  1 20:40 google-cloud-speech-api\r\n",
+      "drwxr-xr-x 2 root root 4096 Nov  1 20:43 .ipynb_checkpoints\r\n",
+      "drwxr-xr-x 3 root root 4096 Nov  1 20:27 notebooks\r\n",
+      "-rw-r--r-- 1 root root 1753 Nov  1 20:43 Utility Notebook for Cloud Speech to Text.ipynb\r\n"
+     ]
+    }
+   ],
+   "source": [
+    "! ls -la"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 2",
+   "language": "python",
+   "name": "python2"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
